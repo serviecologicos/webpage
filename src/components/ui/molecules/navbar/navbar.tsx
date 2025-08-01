@@ -1,17 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { Logo } from "@/components/logo";
 import { Menu, X } from "lucide-react";
 import { NavbarProps } from "./navbar.types";
+import Image from "next/image";
 
 interface NavbarComponentProps {
   navbarContent?: NavbarProps;
 }
 
 const Navbar = ({ navbarContent }: NavbarComponentProps) => {
-  const [menuState, setMenuState] = React.useState(false);
+  const [menuState, setMenuState] = useState(false);
  
   const menuItems = navbarContent?.linksCollection.items || [
     { text: "Nosotros", link: "#link", isExternalLink: false },
@@ -24,10 +24,10 @@ const Navbar = ({ navbarContent }: NavbarComponentProps) => {
   return (
     <nav
       data-state={menuState && "active"}
-      className="bg-background/95 sticky top-0 z-20 w-full border-b backdrop-blur-3xl"
+      className="bg-background/15 sticky top-0 z-50 w-full border-b backdrop-blur-xs"
     >
       <div className="mx-auto max-w-6xl px-6 transition-all duration-300">
-        <div className="relative flex items-center py-3 lg:py-4 lg:justify-between">
+        <div className="relative flex items-center py-2 lg:py-2 lg:justify-between">
           {/* Logo */}
           <div className="flex items-center">
             <Link
@@ -36,7 +36,7 @@ const Navbar = ({ navbarContent }: NavbarComponentProps) => {
               className="flex items-center space-x-2"
             >
               {navbarContent?.logo && (
-                <img 
+                <Image 
                   src={navbarContent.logo.media.url}
                   alt={navbarContent.logo.title}
                   width={48}
@@ -53,7 +53,7 @@ const Navbar = ({ navbarContent }: NavbarComponentProps) => {
                 <li key={index}>
                   <Link
                     href={item.link}
-                    className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                    className="text-muted-foreground hover:text-green-800 block duration-150"
                     target={item.isExternalLink ? "_blank" : undefined}
                     rel={item.isExternalLink ? "noopener noreferrer" : undefined}
                   >
@@ -83,9 +83,9 @@ const Navbar = ({ navbarContent }: NavbarComponentProps) => {
         <div className={`overflow-hidden transition-all duration-500 ease-in-out lg:hidden ${
           menuState ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="absolute top-full left-0 right-0 bg-background border-t">
+          <div className="absolute top-full left-0 right-0 bg-background/80 backdrop-blur border-t">
             <div className="mx-auto max-w-6xl px-6 py-6">
-              <ul className="space-y-4 text-base text-center">
+              <ul className="space-y-2 text-base text-center">
                 {menuItems.map((item, index) => (
                   <li 
                     key={index} 
@@ -100,7 +100,7 @@ const Navbar = ({ navbarContent }: NavbarComponentProps) => {
                   >
                     <Link
                       href={item.link}
-                      className="text-muted-foreground hover:text-accent-foreground block duration-150 py-2 text-center transition-colors hover:bg-muted/50 rounded-md"
+                      className="text-muted-foreground hover:text-green-800 block duration-150 py-2 text-center transition-colors rounded-md"
                       target={item.isExternalLink ? "_blank" : undefined}
                       rel={item.isExternalLink ? "noopener noreferrer" : undefined}
                       onClick={() => setMenuState(false)}

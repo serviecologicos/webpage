@@ -2,30 +2,33 @@ import { getNavbar } from "@/components/ui/molecules/navbar/navbar.service";
 import { NavbarProps } from "@/components/ui/molecules/navbar/navbar.types";
 import Navbar  from "@/components/ui/molecules/navbar/navbar";
 import { GetStaticProps } from "next";
+import MultiLayerParallax from "@/components/ui/molecules/parallax/multi-layer-parallax";
+import { ParallaxProps } from "@/components/ui/molecules/parallax/parallax.types";
+import { getParallax } from "@/components/ui/molecules/parallax/parallax.service";
 
 interface HomePageProps {
   navbarContent: NavbarProps;
+  parallaxContent: ParallaxProps;
 }
 
-export default function Home({ navbarContent }: HomePageProps) {
-  console.log('Navbar content received in component:', navbarContent);
-  
+export default function Home({ navbarContent, parallaxContent }: HomePageProps) {
   return (
-      <Navbar navbarContent={navbarContent} />
+      <>
+        <Navbar navbarContent={navbarContent} />
+        <MultiLayerParallax parallaxContent={parallaxContent} />
+      </>
     );
 }
 
 export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
   try {
-    console.log('Running getStaticProps...');
-    
     const navbarContent = await getNavbar('home-header');
-    
-    console.log('Navbar content fetched:', navbarContent);
+    const parallaxContent = await getParallax('home-parallax');
     
     return {
       props: {
         navbarContent,
+        parallaxContent
       }
     };
   } catch (error) {
@@ -46,6 +49,12 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
           },
           linksCollection: { items: [] }
         },
+        parallaxContent: {
+          code: '',
+          imagesCollection: {
+            items: []
+          }
+        }
       }
     };
   }
