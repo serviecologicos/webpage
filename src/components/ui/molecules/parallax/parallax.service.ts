@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { apolloClient } from "@/utils/apollo-client";
+import { apolloClient } from "@/lib/apollo-client";
 import { ParallaxProps } from "./parallax.types";
 
 const GET_PARALLAX_QUERY = gql`
@@ -31,13 +31,6 @@ export const getParallax = async (code: string): Promise<ParallaxProps> => {
       variables: { code },
       fetchPolicy: "no-cache",
     });
-
-    if (
-      !data.parallaxCollection.items ||
-      data.parallaxCollection.items.length === 0
-    ) {
-      throw new Error(`No parallax found with code: ${code}`);
-    }
 
     const content = data.parallaxCollection.items[0];
 

@@ -1,3 +1,5 @@
+import { Media } from "@/models/common.types";
+
 export type NavbarProps = {
     code: string;
     logo: Logo;
@@ -17,8 +19,3 @@ export type Logo = {
     media: Media;
 }
 
-export type Media = {
-    height: number;
-    width: number;
-    url: string;
-}

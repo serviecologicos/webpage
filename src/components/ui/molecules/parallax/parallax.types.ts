@@ -1,4 +1,5 @@
-import { Media } from "../navbar/navbar.types";
+import { Media } from "@/models/common.types";
+
 
 export type ParallaxProps = {
     code: string;
