@@ -8,7 +8,7 @@ interface SectionComponentProps {
 }
 
 export default function ContentSection({ sectionContent }: SectionComponentProps) {
-  const { title, subtitle, description, sliderCollection, background } = sectionContent;
+  const { title, subtitle, sliderCollection, background } = sectionContent;
   const backgroundImage = background.media.url;
   const sliderImages = sliderCollection.items.map(item => item.media.url);
   return (
