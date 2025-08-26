@@ -33,8 +33,8 @@ const Navbar = ({ navbarContent }: NavbarComponentProps) => {
               <Image
                 src={logo.media.url}
                 alt={logo.title}
-                width={72}
-                height={72}
+                width={56}
+                height={56}
               />
             </Link>
           </div>
@@ -46,7 +46,7 @@ const Navbar = ({ navbarContent }: NavbarComponentProps) => {
                 <li key={index}>
                   <Link
                     href={item.link}
-                    className="text-foreground hover:text-green-700 block duration-150 text-lg"
+                    className="text-foreground hover:text-green-700 block duration-150 text-base"
                     target={item.isExternalLink ? "_blank" : undefined}
                     rel={
                       item.isExternalLink ? "noopener noreferrer" : undefined
