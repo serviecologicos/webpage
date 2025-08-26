@@ -15,7 +15,18 @@ const geistMono = Geist_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  const { navbarContent } = pageProps;
+  const navbarContent = pageProps?.navbarContent || { 
+    code: '',
+    linksCollection: { items: [] },
+    logo: { 
+      title: '', 
+      media: {
+        url: '', 
+        alt: '',
+      }
+    }
+  };
+
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <Navbar navbarContent={navbarContent} />
