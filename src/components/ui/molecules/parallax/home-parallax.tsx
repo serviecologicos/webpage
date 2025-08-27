@@ -53,7 +53,7 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
         className="relative h-[40vh] md:h-[54vh] overflow-hidden"
       >
         <motion.div
-          className="absolute w-full h-[55vh] inset-0 z-0 top-[-20%] md:top-[0%]"
+          className="absolute w-full h-[55vh] inset-0 z-0 top-[-20%] md:top-[-10%]"
           style={{ y: backgroundY, filter: "blur(2px)" }}
         >
           <Image
@@ -75,7 +75,7 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
           />
         </motion.div>
         <motion.div
-          className="absolute w-[90vw] h-[60vw] md:w-[90vh] md:h-[80vh] inset-0 z-20 left-1/2 top-[62%] md:top-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="absolute w-[90vw] h-[60vw] md:w-[90vh] md:h-[80vh] inset-0 z-20 left-1/2 top-[65%] md:top-9/20 -translate-x-1/2 -translate-y-1/2"
           style={{ y: handsY }}
         >
           <Image
