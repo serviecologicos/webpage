@@ -4,6 +4,7 @@ import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import Image from 'next/image';
 
 interface SliderComponentProps {
   images: string[];
@@ -65,10 +66,12 @@ export default function Slider({ images }: SliderComponentProps) {
       >
         {images.map((image, index) => (
           <SwiperSlide key={`slide-${index}-${image.split('/')[1]}`}>
-            <img
+            <Image
               src={image}
               alt={`Imagen de instalaciones ${((index % 3) + 1)}`}
-              className="w-full h-64 md:h-80 object-cover rounded-xl select-none shadow-lg transition-transform duration-300 hover:scale-105"
+              width={800}
+              height={600}
+              className="w-full h-64 md:h-80 3xl:h-100  object-cover rounded-xl select-none shadow-lg transition-transform duration-300 hover:scale-105"
               draggable={false}
             />
           </SwiperSlide>
