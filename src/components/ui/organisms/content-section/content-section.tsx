@@ -8,7 +8,7 @@ interface SectionComponentProps {
 }
 
 export default function ContentSection({ sectionContent }: SectionComponentProps) {
-  const { title, subtitle, sliderCollection, background } = sectionContent;
+  const { title, subtitle, description, sliderCollection, background } = sectionContent;
   const backgroundImage = background.media.url;
   const sliderImages = sliderCollection.items.map(item => item.media.url);
   return (
@@ -46,7 +46,7 @@ export default function ContentSection({ sectionContent }: SectionComponentProps
             </div>
             {/* Texto */}
             <div className="w-full lg:w-1/2 flex items-center">
-              <TextBlock/>
+              <TextBlock description={description.json} />
             </div>
           </div>
         </div>
