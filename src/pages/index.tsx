@@ -16,6 +16,7 @@ import { getHomeSeparate } from "@/components/ui/atoms/separate/separate.service
 
 
 
+
 interface HomePageProps {
   navbarContent: NavbarProps;
   parallaxContent: ParallaxProps;
@@ -28,7 +29,7 @@ export default function Home({ parallaxContent, sectionContent, separateContent 
       <>
         <MultiLayerParallax parallaxContent={parallaxContent} />
         <Separate separateContent={separateContent} />
-        <ContentSection sectionContent={sectionContent} />
+        <ContentSection sectionContent={sectionContent}/>
       </>
     );
 }
