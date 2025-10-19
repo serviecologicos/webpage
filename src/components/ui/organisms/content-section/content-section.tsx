@@ -4,7 +4,7 @@ import CTASection from "../../molecules/section/cta-section";
 import ServiceSection from "../../molecules/section/service-section";
 // import Slider from "../../molecules/slider/slider";
 // import TextBlock from "../../molecules/text-block/text-block";
-import { HomeSectionProps, Background } from './content-section.types';
+import { HomeSectionProps } from './content-section.types';
 
 interface SectionComponentProps {
   sectionContent: HomeSectionProps

@@ -9,7 +9,7 @@ interface SeparateComponentProps {
 const Separate = ({ separateContent }: SeparateComponentProps) => {
   const { title, media } = separateContent;
   return (
-    <figure className="absolute z-30 w-full -translate-y-[47%]">
+    <figure className="absolute z-30 w-full -translate-y-[47%] pointer-events-none">
       <Image
         src={media.url}
         alt={title}

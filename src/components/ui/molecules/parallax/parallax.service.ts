@@ -18,30 +18,40 @@ const GET_PARALLAX_QUERY = gql`
             }
           }
         }
+        buttonsCollection {
+          ... on ParallaxButtonsCollection {
+            items {
+              name
+              code
+              text
+              link
+              isExternalLink
+            }
+          }
+        }
+        title
+        slogan
       }
     }
   }
 `;
 
-
 export const getParallax = async (code: string): Promise<ParallaxProps> => {
-  try {
-    const { data } = await apolloClient.query({
-      query: GET_PARALLAX_QUERY,
-      variables: { code },
-      fetchPolicy: "no-cache",
-    });
+  const { data } = await apolloClient.query({
+    query: GET_PARALLAX_QUERY,
+    variables: { code },
+    fetchPolicy: "no-cache",
+  });
 
-    const content = data.parallaxCollection.items[0];
+  const content = data.parallaxCollection.items[0];
 
-    const result = {
-      code: content.code,
-      imagesCollection: content.imagesCollection,
-    };
+  const result = {
+    code: content.code,
+    title: content.title,
+    slogan: content.slogan,
+    buttonsCollection: content.buttonsCollection,
+    imagesCollection: content.imagesCollection,
+  };
 
-    return result;
-  } catch (error) {
-    console.error("Error in getParallax:", error);
-    throw error;
-  }
-}
+  return result;
+};
