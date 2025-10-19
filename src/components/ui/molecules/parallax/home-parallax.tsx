@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import { Button } from "@/components/ui/atoms/button/button";
 import { Recycle } from "lucide-react";
 import Image from "next/image";
 import { ParallaxProps } from "./parallax.types";
@@ -20,7 +19,10 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
   const dataButtons = parallaxContent.buttonsCollection.items;
 
   const backgroundUrl = images[0].media.url;
-  const handsUrl = images[2].media.url;
+  const handsUrl = images[1].media.url;
+
+  const quoteButton = dataButtons[0];
+  const serviceButton = dataButtons[1];
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -49,33 +51,38 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
           fill
         />
         <div 
-          className=" w-2/3 z-10 relative top-1/2 left-1/2 lg:top-[40%]"
+          className="w-2/3 relative left-1/2 top-[40%] min-[768px]:top-[45%] min-[844px]:top-[55%] lg:top-[35%] xl:top-[35%] z-10"
           style={{
             opacity: 1 - scrollY * 0.003,
             transform: `translate(-50%, -50%) translateY(${scrollY * 0.4}px)`,
             willChange: "transform, opacity",
           }}
         >
-          <h1 className="text-center text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-white drop-shadow-2xl animate-fade-in">
-            SERVIECOLÓGICOS
+          <h1 className="text-center text-2xl sm:text-3xl md:text-5xl max-[900px]:landscape:text-3xl font-bold mb-6 max-[900px]:landscape:mb-3 text-white drop-shadow-2xl animate-fade-in">
+            { title }
           </h1>
-          <p className="text-center text-2xl md:text-3xl mb-8 text-white/90 drop-shadow-lg animate-fade-in [animation-delay:200ms]">
-            Transformamos residuos en oportunidades para un futuro más
-            sostenible
+          <p className="text-center text-2xl md:text-3xl max-[900px]:landscape:text-xl mb-8 max-[900px]:landscape:mb-4 text-white/90 drop-shadow-lg animate-fade-in [animation-delay:200ms]">
+            { slogan }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:400ms]">
+          <div className="flex flex-col sm:flex-row gap-4  justify-center animate-fade-in [animation-delay:400ms]">
             <Button
+              asChild
               size="lg"
               className="text-lg shadow-2xl hover:scale-105 transition-transform"
             >
-              Solicitar Cotización
+              <Link href={quoteButton.link}>
+                {quoteButton.text}
+              </Link>
             </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="text-lg bg-white/20 backdrop-blur-sm border-white text-white hover:bg-white hover:text-primary shadow-2xl hover:scale-105 transition-transform"
             >
-              Conocer Servicios
+              <Link href={serviceButton.link}>
+                {serviceButton.text}
+              </Link>
             </Button>
           </div>
         </div>
@@ -116,7 +123,7 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
 
       {/* Hero Hands - at bottom, hide on scroll downs */}
       <div
-        className="absolute bottom-0 md:bottom-10  left-1/2 w-[100vw]  md:w-[50vw] max-w-4xl md:max-w-xl  z-0"
+        className="absolute bottom-0 md:bottom-4 xl:bottom-12 left-1/2 w-[100vw] md:w-[80vw] max-w-4xl md:max-w-xl  z-0 pointer-events-none max-[900px]:landscape:hidden"
         style={{
           transform: `translateX(-50%) translateY(${scrollY * 0.8}px)`,
           opacity: Math.max(0, 1 - scrollY * 0.002),
@@ -131,85 +138,8 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
           height={600}
         />
       </div>
-
     </section>
   );
 }
 
 export default MultiLayerParallax;
-
-// const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
-//   const images = parallaxContent.imagesCollection.items;
-
-//   const backgroundUrl = images[0].media.url;
-//   const middlegroundUrl = images[1].media.url;
-//   const handsUrl = images[2].media.url;
-
-//   const ref = useRef<HTMLDivElement>(null);
-//   const lenisRef = useRef<LenisRef>(null);
-
-//   const { scrollYProgress } = useScroll({
-//     target: ref,
-//     offset: ["start end", "end start"],
-//   });
-
-//   const backgroundY = useTransform(scrollYProgress, [0, 1], ["-45%", "30%"]);
-//   const middlegroundY = useTransform(scrollYProgress, [0, 1], ["-45%", "30%"]);
-//   const handsY = useTransform(scrollYProgress, [0, 1.05], ["-60%", "30%"]);
-
-//   useEffect(() => {
-//     function update(data: { timestamp: number }) {
-//       const time = data.timestamp;
-//       lenisRef.current?.lenis?.raf(time);
-//     }
-
-//     frame.update(update, true);
-
-//     return () => cancelFrame(update);
-//   }, []);
-
-//   return (
-//     <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
-//       <figure
-//         ref={ref}
-//         className="relative h-[40vh] md:h-[54vh] overflow-hidden"
-//       >
-//         <motion.div
-//           className="absolute w-full h-[55vh] inset-0 z-0 top-[-20%] md:top-[-10%]"
-//           style={{ y: backgroundY, filter: "blur(2px)" }}
-//         >
-//           <Image
-//             src={backgroundUrl}
-//             alt="background"
-//             className="w-full h-full object-cover"
-//             fill
-//           />
-//         </motion.div>
-//         <motion.div
-//           className="absolute w-full h-[55vh] inset-0 z-10 top-[-20%] left-[0%] md:top-1 md:left-[0%]"
-//           style={{ y: middlegroundY, filter: "blur(0.3px)" }}
-//         >
-//           <Image
-//             src={middlegroundUrl}
-//             alt="middleground"
-//             className="w-full h-full object-fill object-center"
-//             fill
-//           />
-//         </motion.div>
-//         <motion.div
-//           className="absolute w-[90vw] h-[60vw] md:w-[90vh] md:h-[80vh] inset-0 z-20 left-1/2 top-[65%] md:top-9/20 -translate-x-1/2 -translate-y-1/2"
-//           style={{ y: handsY }}
-//         >
-//           <Image
-//             src={handsUrl}
-//             alt="manos"
-//             className="w-full h-full object-cover"
-//             fill
-//           />
-//         </motion.div>
-//       </figure>
-//     </ReactLenis>
-//   );
-// };
-
-// export default MultiLayerParallax;
