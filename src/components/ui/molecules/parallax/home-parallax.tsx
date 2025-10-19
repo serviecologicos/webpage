@@ -4,13 +4,20 @@ import { Button } from "@/components/ui/atoms/button/button";
 import { Recycle } from "lucide-react";
 import Image from "next/image";
 import { ParallaxProps } from "./parallax.types";
+import { Button } from "@/components/ui/atoms/button/button";
+import Link from "next/link";
+
 
 interface ParallaxComponentProps {
   parallaxContent: ParallaxProps;
 }
 
+
 const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
+  
+  const { title, slogan } = parallaxContent;
   const images = parallaxContent.imagesCollection.items;
+  const dataButtons = parallaxContent.buttonsCollection.items;
 
   const backgroundUrl = images[0].media.url;
   const handsUrl = images[2].media.url;
@@ -127,7 +134,7 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
 
     </section>
   );
-};
+}
 
 export default MultiLayerParallax;
 
