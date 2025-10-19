@@ -2,6 +2,7 @@ import { Media } from "@/models/common.types";
 
 export type NavbarProps = {
     code: string;
+    title: string;
     logo: Logo;
     linksCollection: LinksCollection;
 }

@@ -7,6 +7,7 @@ const GET_NAVBAR_QUERY = gql`
     headerCollection(where: { code: $code }, limit: 1) {
       items {
         code
+        title
         logo {
           ... on Image {
             title
@@ -42,6 +43,7 @@ export const getNavbar = async (code: string): Promise<NavbarProps> => {
 
   const result = {
     code: content.code,
+    title: content.title,
     logo: content.logo,
     linksCollection: content.linksCollection,
   };
