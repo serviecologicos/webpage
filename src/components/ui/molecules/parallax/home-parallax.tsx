@@ -51,7 +51,7 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
           fill
         />
         <div 
-          className="w-2/3 relative left-1/2 top-[40%] min-[768px]:top-[45%] min-[844px]:top-[55%] lg:top-[35%] xl:top-[35%] z-10"
+          className="w-2/3 relative left-1/2 top-[40%] min-[740px]:top-[53%] min-[844px]:top-[55%] lg:top-[35%] xl:top-[35%] z-10"
           style={{
             opacity: 1 - scrollY * 0.003,
             transform: `translate(-50%, -50%) translateY(${scrollY * 0.4}px)`,
@@ -123,7 +123,7 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
 
       {/* Hero Hands - at bottom, hide on scroll downs */}
       <div
-        className="absolute bottom-0 md:bottom-4 xl:bottom-12 left-1/2 w-[100vw] md:w-[80vw] max-w-4xl md:max-w-xl  z-0 pointer-events-none max-[900px]:landscape:hidden"
+        className="absolute bottom-0 md:bottom-4 xl:bottom-12 left-1/2 w-[100vw] md:w-[80vw] 2xl:w-[100vw] max-w-4xl md:max-w-xl 2xl:max-w-7xl z-0 pointer-events-none max-[900px]:landscape:hidden"
         style={{
           transform: `translateX(-50%) translateY(${scrollY * 0.8}px)`,
           opacity: Math.max(0, 1 - scrollY * 0.002),

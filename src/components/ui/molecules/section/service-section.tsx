@@ -32,7 +32,7 @@ const ServiceSection = ({ backgroundImage }: { backgroundImage: string }) => {
           background: "rgba(255, 255, 255, 0.6)",
         }}
       />
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 2xl:pt-36 landscape:max-[800px]:pt-12 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Nuestros Servicios
