@@ -87,7 +87,7 @@ const Footer = ({ footerContent }: FooterComponentProps) => {
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                <span>Barrio Sucre, Cali - Colombia</span>
+                <span>Cali - Colombia</span>
               </li>
             </ul>
           </div>
