@@ -24,7 +24,6 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/molecules/sonner/sonner";
-import collageImage from "@/assets/collage.webp";
 import Image from "next/image";
 
 const ContactSection = () => {
@@ -64,6 +63,7 @@ const ContactSection = () => {
       toast.error("Error al enviar el mensaje", {
         description: "Comuniquese con el administrador o al whatsapp.",
       });
+      console.error("Error al enviar el mensaje:", error);
     }
   };
 
