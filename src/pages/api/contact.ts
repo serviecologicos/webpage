@@ -17,18 +17,21 @@ export default async function handler(
   }
 
   try {
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyYqIQ6XZdtd0BCNgwwD0Q_YmWdbMMrk1sPDsuSWxX6_e1Pj26RvkOOB4buRHE55nud/exec";
-    
-    // Convertir a FormData
-    const params = new URLSearchParams();
-    params.append('name', req.body.name);
-    params.append('email', req.body.email);
-    params.append('phone', req.body.phone);
-    params.append('message', req.body.message);
+    const scriptURL = process.env.APPSCRIPT_URL;
+
+    if (!scriptURL) {
+      return res.status(500).json({ 
+        status: 'error', 
+        message: 'Variable de entorno APPSCRIPT_URL no configurada' 
+      });
+    }
 
     const response = await fetch(scriptURL, {
       method: 'POST',
-      body: params,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(req.body),
     });
 
     const data = await response.json();
