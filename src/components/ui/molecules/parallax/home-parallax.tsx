@@ -123,7 +123,7 @@ const MultiLayerParallax = ({ parallaxContent }: ParallaxComponentProps) => {
 
       {/* Hero Hands - at bottom, hide on scroll downs */}
       <div
-        className="absolute bottom-0 md:bottom-4 xl:bottom-12 left-1/2 w-[100vw] md:w-[80vw] 2xl:w-[100vw] max-w-4xl md:max-w-xl 2xl:max-w-5xl z-0 pointer-events-none max-[900px]:landscape:hidden"
+        className="absolute bottom-0 md:bottom-4 2xl:bottom-10 3xl:bottom-20 left-1/2 w-[100vw] md:w-[80vw] 2xl:w-[100vw] max-w-xl 2xl:max-w-xl 3xl:max-w-5xl z-0 pointer-events-none max-[900px]:landscape:hidden"
         style={{
           transform: `translateX(-50%) translateY(${scrollY * 0.8}px)`,
           opacity: Math.max(0, 1 - scrollY * 0.002),
