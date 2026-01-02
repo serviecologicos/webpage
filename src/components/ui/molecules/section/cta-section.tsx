@@ -1,4 +1,4 @@
-import React from 'react'
+import Link from "next/link";
 import { Button } from '../../atoms/button/button'
 
 
@@ -10,9 +10,11 @@ const CTASection = () => {
           <p className="text-xl mb-8 opacity-90">
             Contáctanos hoy y descubre cómo podemos ayudarte con soluciones ecológicas
           </p>
-          <Button size="lg" variant="secondary" className="text-lg">
-            Solicitar Información
-          </Button>
+          <Link href="/contacto">
+            <Button size="lg" variant="secondary" className="text-lg">
+              Solicitar Información
+            </Button>
+          </Link>
         </div>
       </section>
   )
