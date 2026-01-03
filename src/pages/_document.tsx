@@ -2,9 +2,9 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="es">
       <Head>
-        <title>Serviecológicos</title>
+        <title>Serviecológicos FRC</title>
         <meta name="description" content="Transformamos residuos en oportunidades para un futuro más sostenible" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://use.typekit.net/pgf1fsz.css"></link>
