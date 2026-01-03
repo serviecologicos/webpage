@@ -32,7 +32,7 @@ const Footer = ({ footerContent }: FooterComponentProps) => {
                 height={72}
               />
               <span className="text-xl font-bold text-foreground">
-                SERVIECOLÓGICOS
+                SERVIECOLÓGICOS FRC
               </span>
             </div>
             <p className="text-muted-foreground mb-4">

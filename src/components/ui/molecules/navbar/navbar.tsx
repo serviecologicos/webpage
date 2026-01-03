@@ -67,6 +67,7 @@ const Navbar = ({ navbarContent }: NavbarComponentProps) => {
                       item.isExternalLink ? "noopener noreferrer" : undefined
                     }
                       className="text-lg font-medium text-foreground hover:text-primary transition-colors animate-fade-in"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.text}
                     </Link>
