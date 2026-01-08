@@ -4,8 +4,8 @@ import {
   MapPin,
   Facebook,
   Instagram,
-  Linkedin,
 } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
 import Link from "next/link";
 import Image from "next/image";
 import { NavbarProps } from "../navbar/navbar.types";
@@ -24,7 +24,7 @@ const Footer = ({ footerContent }: FooterComponentProps) => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-2 mb-4">
               <Image
                 src={logo.media.url}
                 alt={logo.title}
@@ -34,20 +34,20 @@ const Footer = ({ footerContent }: FooterComponentProps) => {
               <span className="text-xl font-bold text-foreground">
                 SERVIECOLÓGICOS FRC
               </span>
-            </div>
+            </Link>
             <p className="text-muted-foreground mb-4">
               Comprometidos con un futuro sostenible a través de soluciones
               innovadoras en gestión de residuos.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.facebook.com/share/1Fg4zsAbpV/?mibextid=wwXIfr" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/serviecologicos/" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="h-6 w-6" />
+              <a href="https://www.tiktok.com/@serviecologicos.f" className="text-muted-foreground hover:text-primary transition-colors">
+                <SiTiktok className="h-6 w-6" />
               </a>
             </div>
           </div>
@@ -94,7 +94,7 @@ const Footer = ({ footerContent }: FooterComponentProps) => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2025 Serviecológicos. Todos los derechos reservados.</p>
+          <p>&copy; 2026 Serviecológicos. Todos los derechos reservados.</p>
           <div className="flex justify-center gap-4 mt-2">
             <a href="#" className="hover:text-primary transition-colors">
               Política de Privacidad
