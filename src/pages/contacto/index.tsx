@@ -271,7 +271,7 @@ const ContactSection = () => {
                       href="mailto:serviecologicos@gmail.com"
                       className="text-muted-foreground hover:text-accent transition-colors text-lg break-all"
                     >
-                      serviecologicos@gmail.com
+                      serviecologicosfrc3@gmail.com
                     </a>
                     <p className="text-sm text-muted-foreground mt-1">
                       Respuesta en menos de 24 horas
