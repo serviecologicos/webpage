@@ -17,11 +17,10 @@ import {
   MapPin,
   Facebook,
   Instagram,
-  Linkedin,
   Send,
   Recycle,
-  MessageCircle,
 } from "lucide-react";
+import { SiWhatsapp, SiTiktok } from "react-icons/si";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/molecules/sonner/sonner";
 import Image from "next/image";
@@ -235,7 +234,7 @@ const ContactSection = () => {
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-[#25D366]/10 rounded-lg group-hover:bg-[#25D366]/20 transition-colors">
-                    <MessageCircle className="h-6 w-6 text-[#25D366]" />
+                    <SiWhatsapp className="h-6 w-6 text-[#25D366]" />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-lg mb-2 text-foreground">
@@ -312,25 +311,25 @@ const ContactSection = () => {
                 </h3>
                 <div className="flex gap-4">
                   <a
-                    href="#"
+                    href="https://www.facebook.com/share/1Fg4zsAbpV/?mibextid=wwXIfr"
                     className="p-3 bg-primary/10 hover:bg-primary hover:text-primary-foreground rounded-lg transition-all hover:scale-110 group"
                     aria-label="Facebook"
                   >
                     <Facebook className="h-6 w-6" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/serviecologicos/"
                     className="p-3 bg-primary/10 hover:bg-primary hover:text-primary-foreground rounded-lg transition-all hover:scale-110 group"
                     aria-label="Instagram"
                   >
                     <Instagram className="h-6 w-6" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.tiktok.com/@serviecologicos.f"
                     className="p-3 bg-primary/10 hover:bg-primary hover:text-primary-foreground rounded-lg transition-all hover:scale-110 group"
                     aria-label="LinkedIn"
                   >
-                    <Linkedin className="h-6 w-6" />
+                    <SiTiktok className="h-6 w-6" />
                   </a>
                 </div>
               </CardContent>
